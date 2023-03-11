@@ -8,10 +8,10 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"github.com/xxjwxc/gormt/data/config"
-	"github.com/xxjwxc/gormt/data/view/model"
-	"github.com/xxjwxc/public/mylog"
-	"github.com/xxjwxc/public/tools"
+	"github.com/wideway/gormt/data/config"
+	"github.com/wideway/gormt/data/view/model"
+	"github.com/wideway/public/mylog"
+	"github.com/wideway/public/tools"
 )
 
 // GetCnfModel get model interface. 获取model接口

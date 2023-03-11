@@ -6,10 +6,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/xxjwxc/gormt/data/config"
-	"github.com/xxjwxc/gormt/data/view/model"
-	"github.com/xxjwxc/public/mysqldb"
-	"github.com/xxjwxc/public/tools"
+	"github.com/wideway/gormt/data/config"
+	"github.com/wideway/gormt/data/view/model"
+	"github.com/wideway/public/mysqldb"
+	"github.com/wideway/public/tools"
 )
 
 // MySQLModel mysql model from IModel
@@ -20,7 +20,7 @@ type mysqlModel struct {
 
 // GenModel get model.DBInfo info.获取数据库相关属性
 func (m *mysqlModel) GenModel() model.DBInfo {
-	orm := mysqldb.OnInitDBOrm(config.GetMysqlConStr())
+	orm := mysqldb.OnInitDBOrm(config.GetMysqlConStr(), false)
 	defer orm.OnDestoryDB()
 
 	var dbInfo model.DBInfo

@@ -4,17 +4,17 @@ import (
 	"fmt"
 	"os/exec"
 
-	"github.com/xxjwxc/public/mylog"
+	"github.com/wideway/public/mylog"
 
-	"github.com/xxjwxc/gormt/data/dlg"
-	"github.com/xxjwxc/gormt/data/view/model"
+	"github.com/wideway/gormt/data/dlg"
+	"github.com/wideway/gormt/data/view/model"
 
-	"github.com/xxjwxc/gormt/data/config"
+	"github.com/wideway/gormt/data/config"
 
-	"github.com/xxjwxc/gormt/data/view/model/genmssql"
-	"github.com/xxjwxc/gormt/data/view/model/genmysql"
-	"github.com/xxjwxc/gormt/data/view/model/gensqlite"
-	"github.com/xxjwxc/public/tools"
+	"github.com/wideway/gormt/data/view/model/genmssql"
+	"github.com/wideway/gormt/data/view/model/genmysql"
+	"github.com/wideway/gormt/data/view/model/gensqlite"
+	"github.com/wideway/public/tools"
 )
 
 // Execute exe the cmd

@@ -5,10 +5,10 @@ import (
 	"io/ioutil"
 	"path"
 
-	"github.com/xxjwxc/public/mylog"
+	"github.com/wideway/public/mylog"
 
-	"github.com/xxjwxc/public/dev"
-	"github.com/xxjwxc/public/tools"
+	"github.com/wideway/public/dev"
+	"github.com/wideway/public/tools"
 	"gopkg.in/yaml.v3"
 )
 

@@ -5,14 +5,14 @@ import (
 	"os/exec"
 
 	"github.com/jroimartin/gocui"
-	"github.com/xxjwxc/gormt/data/view/model"
-	"github.com/xxjwxc/gormt/data/view/model/genmysql"
-	"github.com/xxjwxc/gormt/data/view/model/gensqlite"
+	"github.com/wideway/gormt/data/view/model"
+	"github.com/wideway/gormt/data/view/model/genmysql"
+	"github.com/wideway/gormt/data/view/model/gensqlite"
 
-	"github.com/xxjwxc/gormt/data/config"
+	"github.com/wideway/gormt/data/config"
 
-	"github.com/xxjwxc/public/mylog"
-	"github.com/xxjwxc/public/tools"
+	"github.com/wideway/public/mylog"
+	"github.com/wideway/public/tools"
 )
 
 func division(a int, b float32) int {

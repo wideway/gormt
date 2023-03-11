@@ -6,13 +6,13 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/xxjwxc/public/tools"
+	"github.com/wideway/public/tools"
 
-	"github.com/xxjwxc/gormt/data/config"
+	"github.com/wideway/gormt/data/config"
 
 	"github.com/jroimartin/gocui"
-	"github.com/xxjwxc/public/myclipboard"
-	"github.com/xxjwxc/public/mycui"
+	"github.com/wideway/public/myclipboard"
+	"github.com/wideway/public/mycui"
 )
 
 func nextView(g *gocui.Gui, v *gocui.View) error {
@@ -50,7 +50,7 @@ func mainLayout(g *gocui.Gui) error {
 		}
 		v.Highlight = true
 		v.SelFgColor = gocui.ColorGreen | gocui.AttrUnderline
-		fmt.Fprintln(v, "https://github.com/xxjwxc/gormt")
+		fmt.Fprintln(v, "https://github.com/wideway/gormt")
 	}
 
 	if v, err := g.SetView(_menuDefine, 0, 1, division(maxX, uiPart[0])-1, division(maxY, uiPart[1])-1); err != nil {
@@ -147,7 +147,7 @@ func keybindings(g *gocui.Gui) {
 
 ///////////////////signal slot ///////////
 func about(g *gocui.Gui, v *gocui.View) error {
-	openURL("https://github.com/xxjwxc/gormt")
+	openURL("https://github.com/wideway/gormt")
 	return nil
 }
 
