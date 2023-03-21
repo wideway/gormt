@@ -13,8 +13,13 @@ require (
 	gorm.io/driver/mysql v1.4.7
 	gorm.io/driver/sqlite v1.4.4
 	gorm.io/driver/sqlserver v1.4.2
-	gorm.io/gorm v1.24.6
+	gorm.io/gorm v1.24.7-0.20230306060331-85eaf9eeda11
 )
+
+//replace gitlab.com/tools86/lib => ../../tools86/lib
+replace github.com/wideway/public => ../public
+
+//replace github.com/wideway/public => /media/zk008/data/gowork/src/github.com/wideway/public
 
 require (
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394 // indirect
@@ -25,6 +30,9 @@ require (
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
 	github.com/gookit/color v1.5.2 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
+	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a // indirect
+	github.com/jackc/pgx/v5 v5.3.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/leodido/go-urn v1.2.2 // indirect
@@ -42,4 +50,5 @@ require (
 	golang.org/x/sys v0.6.0 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
+	gorm.io/driver/postgres v1.5.0 // indirect
 )

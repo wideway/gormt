@@ -22,13 +22,22 @@ table_names: "" # 指定表生成，多个表用,隔开
 is_out_file_by_table_name: false # 是否根据表名生成多个model
 is_out_page: true # 是否输出分页函数 
 
+db_info_bak:
+    host : 106.55.106.191 # type=1的时候，host为yml文件全路径
+    port : 26257
+    username : iotsaas
+    password : 
+    database : gfast
+    schema	: public
+    type: 3 # 数据库类型:0:mysql , 1:sqlite , 2:mssql,3:pgsql
 db_info:
     host : 127.0.0.1 # type=1的时候，host为yml文件全路径
-    port : 3306
+    port : 26257
     username : root
-    password : 123456
-    database : meki_dev
-    type: 0 # 数据库类型:0:mysql , 1:sqlite , 2:mssql
+    password : 
+    database : gfast
+    schema	: public
+    type: 3 # 数据库类型:0:mysql , 1:sqlite , 2:mssql,3:pgsql
 self_type_define: # 自定义数据类型映射
     datetime: time.Time
     time: time.Time

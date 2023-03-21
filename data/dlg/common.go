@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os/exec"
 
+	"github.com/wideway/gormt/data/view/model/genpgsql"
+
 	"github.com/jroimartin/gocui"
 	"github.com/wideway/gormt/data/view/model"
 	"github.com/wideway/gormt/data/view/model/genmysql"
@@ -81,9 +83,11 @@ func generate(g *gocui.Gui, v *gocui.View) {
 		modeldb = genmysql.GetModel()
 	case 1:
 		modeldb = gensqlite.GetModel()
+	case 3:
+		modeldb = genpgsql.GetModel()
 	}
 	if modeldb == nil {
-		mylog.Error(fmt.Errorf("modeldb not fund : please check db_info.type (0:mysql , 1:sqlite , 2:mssql) "))
+		mylog.Error(fmt.Errorf("modeldb not fund : please check db_info.type (0:mysql , 1:sqlite , 2:mssql     ///3:pgsql) "))
 		return
 	}
 

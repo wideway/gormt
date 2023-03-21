@@ -2,6 +2,7 @@ package genmysql
 
 import (
 	"database/sql"
+	//"encoding/json"
 	"fmt"
 	"sort"
 	"strings"
@@ -21,12 +22,15 @@ type mysqlModel struct {
 // GenModel get model.DBInfo info.获取数据库相关属性
 func (m *mysqlModel) GenModel() model.DBInfo {
 	orm := mysqldb.OnInitDBOrm(config.GetMysqlConStr(), false)
+
 	defer orm.OnDestoryDB()
 
 	var dbInfo model.DBInfo
 	m.getPackageInfo(orm, &dbInfo)
+
 	dbInfo.PackageName = m.GetPkgName()
 	dbInfo.DbName = m.GetDbName()
+
 	return dbInfo
 }
 
@@ -85,6 +89,7 @@ func (m *mysqlModel) getPackageInfo(orm *mysqldb.MySqlDB, info *model.DBInfo) {
 	// 	tabls = newTabls
 	// }
 	for tabName, notes := range tabls {
+
 		var tab model.TabInfo
 		tab.Name = tabName
 		tab.Notes = notes
@@ -132,12 +137,14 @@ func (m *mysqlModel) getTableElement(orm *mysqldb.MySqlDB, tab string) (el []mod
 	var list []genColumns
 	// Get table annotations.获取表注释
 	orm.Raw("show FULL COLUMNS from " + assemblyTable(tab)).Scan(&list)
+
 	// filter gorm.Model.过滤 gorm.Model
 	if filterModel(&list) {
 		el = append(el, model.ColumnsInfo{
 			Type: "gorm.Model",
 		})
 	}
+
 	// -----------------end
 
 	// ForeignKey
@@ -234,7 +241,6 @@ func (m *mysqlModel) getTables(orm *mysqldb.MySqlDB) map[string]string {
 			}
 			return tbDesc
 		}
-
 		for rows.Next() {
 			var table string
 			rows.Scan(&table)
@@ -247,10 +253,11 @@ func (m *mysqlModel) getTables(orm *mysqldb.MySqlDB) map[string]string {
 	// Get table annotations.获取表注释
 	var err error
 	var rows1 *sql.Rows
+
 	if m.GetTableNames() != "" {
 		rows1, err = orm.Raw("SELECT TABLE_NAME,TABLE_COMMENT FROM information_schema.TABLES WHERE table_schema= '" + m.GetDbName() + "'and TABLE_NAME IN(" + m.GetTableNames() + ")").Rows()
-		fmt.Println("getTables:" + m.GetTableNames())
-		fmt.Println("SELECT TABLE_NAME,TABLE_COMMENT FROM information_schema.TABLES WHERE table_schema= '" + m.GetDbName() + "'and TABLE_NAME IN(" + m.GetTableNames() + ")")
+
+		//fmt.Println("SELECT TABLE_NAME,TABLE_COMMENT FROM information_schema.TABLES WHERE table_schema= '" + m.GetDbName() + "'and TABLE_NAME IN(" + m.GetTableNames() + ")").Rows()
 	} else {
 		rows1, err = orm.Raw("SELECT TABLE_NAME,TABLE_COMMENT FROM information_schema.TABLES WHERE table_schema= '" + m.GetDbName() + "'").Rows()
 	}

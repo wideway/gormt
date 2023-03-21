@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os/exec"
 
+	"github.com/wideway/gormt/data/view/model/genpgsql"
+
 	"github.com/wideway/public/mylog"
 
 	"github.com/wideway/gormt/data/dlg"
@@ -39,6 +41,8 @@ func showCmd() {
 		modeldb = gensqlite.GetModel()
 	case 2: //
 		modeldb = genmssql.GetModel()
+	case 3:
+		modeldb = genpgsql.GetModel()
 	}
 	if modeldb == nil {
 		mylog.Error(fmt.Errorf("modeldb not fund : please check db_info.type (0:mysql , 1:sqlite , 2:mssql) "))
